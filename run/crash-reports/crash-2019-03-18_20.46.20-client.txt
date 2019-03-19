@@ -1,0 +1,135 @@
+---- Minecraft Crash Report ----
+// Why did you do that?
+
+Time: 3/18/19 8:46 PM
+Description: Unexpected error
+
+java.lang.LinkageError: loader constraint violation: loader (instance of sun/misc/Launcher$AppClassLoader) previously initiated loading for a different type with name "net/minecraft/client/MinecraftClient"
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:467)
+	at java.net.URLClassLoader.access$100(URLClassLoader.java:73)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:368)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:338)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at net.fabricmc.example.TextDrawListener.onHudDrawEvent(TextDrawListener.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.google.common.eventbus.Subscriber.invokeSubscriberMethod(Subscriber.java:91)
+	at com.google.common.eventbus.Subscriber$SynchronizedSubscriber.invokeSubscriberMethod(Subscriber.java:150)
+	at com.google.common.eventbus.Subscriber$1.run(Subscriber.java:76)
+	at com.google.common.util.concurrent.MoreExecutors$DirectExecutor.execute(MoreExecutors.java:399)
+	at com.google.common.eventbus.Subscriber.dispatchEvent(Subscriber.java:71)
+	at com.google.common.eventbus.Dispatcher$PerThreadQueuedDispatcher.dispatch(Dispatcher.java:116)
+	at com.google.common.eventbus.EventBus.post(EventBus.java:217)
+	at net.fabricmc.example.events.EventManager.post(EventManager.java:17)
+	at net.minecraft.client.gui.hud.InGameHud.handler$draw$zbk000(InGameHud.java:1267)
+	at net.minecraft.client.gui.hud.InGameHud.draw(InGameHud.java:355)
+	at net.minecraft.client.render.GameRenderer.render(GameRenderer.java:753)
+	at net.minecraft.client.MinecraftClient.render(MinecraftClient.java:925)
+	at net.minecraft.client.MinecraftClient.start(MinecraftClient.java:407)
+	at net.minecraft.client.main.Main.main(Main.java:154)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.fabricmc.loader.launch.knot.Knot.init(Knot.java:347)
+	at net.fabricmc.loader.launch.knot.KnotClient.main(KnotClient.java:26)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:467)
+	at java.net.URLClassLoader.access$100(URLClassLoader.java:73)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:368)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:338)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at net.fabricmc.example.TextDrawListener.onHudDrawEvent(TextDrawListener.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.google.common.eventbus.Subscriber.invokeSubscriberMethod(Subscriber.java:91)
+	at com.google.common.eventbus.Subscriber$SynchronizedSubscriber.invokeSubscriberMethod(Subscriber.java:150)
+	at com.google.common.eventbus.Subscriber$1.run(Subscriber.java:76)
+	at com.google.common.util.concurrent.MoreExecutors$DirectExecutor.execute(MoreExecutors.java:399)
+	at com.google.common.eventbus.Subscriber.dispatchEvent(Subscriber.java:71)
+	at com.google.common.eventbus.Dispatcher$PerThreadQueuedDispatcher.dispatch(Dispatcher.java:116)
+	at com.google.common.eventbus.EventBus.post(EventBus.java:217)
+	at net.fabricmc.example.events.EventManager.post(EventManager.java:17)
+	at net.minecraft.client.gui.hud.InGameHud.handler$draw$zbk000(InGameHud.java:1267)
+	at net.minecraft.client.gui.hud.InGameHud.draw(InGameHud.java:355)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [ClientPlayerEntity['Player485'/491, l='MpServer', x=-89.28, y=66.00, z=-2.81]]
+	Chunk stats: MultiplayerChunkCache: 625, 441
+	Level seed: 0
+	Level generator: ID 00 - default, ver 1. Features enabled: false
+	Level generator options: {}
+	Level spawn location: World: (-96,65,2), Chunk: (at 0,4,2 in -6,0; contains blocks -96,0,0 to -81,255,15), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Level time: 381 game time, 381 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+	Server brand: fabric
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.world.ClientWorld.addDetailsToCrashReport(ClientWorld.java:466)
+	at net.minecraft.client.MinecraftClient.populateCrashReport(MinecraftClient.java:1894)
+	at net.minecraft.client.MinecraftClient.start(MinecraftClient.java:420)
+	at net.minecraft.client.main.Main.main(Main.java:154)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.fabricmc.loader.launch.knot.Knot.init(Knot.java:347)
+	at net.fabricmc.loader.launch.knot.KnotClient.main(KnotClient.java:26)
+
+-- System Details --
+Details:
+	Minecraft Version: 19w07a
+	Operating System: Linux (amd64) version 4.20.13-arch1-1-ARCH
+	Java Version: 1.8.0_162, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1236708712 bytes (1179 MB) / 3361210368 bytes (3205 MB) up to 7482638336 bytes (7136 MB)
+	JVM Flags: 0 total; 
+	Fabric Mods: 
+		Example Mod: 1.0.0 (main)
+		Fabric API: 0.2.1 (fabric-0.2.1.94.mapped.yarn.6.jar)
+		Fabric Loader: 0.3.6 (fabric-loader-0.3.6.107.mapped.yarn.6.jar)
+	Launched Version: Fabric
+	LWJGL: 3.2.1 build 12
+	OpenGL: GeForce GTX 980 Ti/PCIe/SSE2 GL version 4.6.0 NVIDIA 418.43, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fabric'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	CPU: 8x Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz

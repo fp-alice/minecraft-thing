@@ -15,7 +15,6 @@ public class InGameHudMixin {
 
     @Inject(at = @At("RETURN"), method = "draw(F)V")
     private void draw(CallbackInfo info) {
-        System.out.println("DRAWING!");
         EventManager.getInstance().post(new HudDrawEvent());
     }
 }
